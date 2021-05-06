@@ -1,4 +1,5 @@
 // local reviews data
+//Array of various items, where each represents a person: 
 const reviews = [
   {
     id: 1,
@@ -37,3 +38,62 @@ const reviews = [
       "Edison bulb put a bird on it humblebrag, marfa pok pok heirloom fashion axe cray stumptown venmo actually seitan. VHS farm-to-table schlitz, edison bulb pop-up 3 wolf moon tote bag street art shabby chic. ",
   },
 ];
+
+//Select items using their ID, assign img to ID
+const img = document.getElementById("person-img");
+const author = document.getElementById("author");
+const job = document.getElementById("job");
+const info = document.getElementById("info");
+
+//Selecting each button in the 
+const prevBtn = document.querySelector(".prev-btn");
+const nextBtn = document.querySelector(".next-btn");
+const randomBtn = document.querySelector(".random-btn");
+//Select all our buttons using query selector:
+//QuerySelector returns first element and matches the specified elements
+
+let currentItem = 1;
+
+//load initial item 
+window.addEventListener("DOMContentLoaded", function()
+{
+showPerson(currentItem);
+});
+
+function showPerson(person)
+{
+ //Access images according to their name in array
+ const item = reviews[currentItem];
+ img.src = item.img;
+ author.textContent = item.name;
+ job.textContent = item.job;
+ info.textContent = item.text;  
+}
+
+//Show next button:
+prevBtn.addEventListener('click', function(){
+  currentItem--;
+  if(currentItem<0){
+currentItem = reviews.length -1;
+ }
+    showPerson(currentItem);
+});
+
+//Show random button
+randomBtn.addEventListener('click', function(){
+
+ currentItem=Math.floor((Math.random()*4)+0);
+ //console.log("The random number is "+ randomNumber+ "the array length is: " + reviews.length);
+ showPerson(currentItem);
+});
+
+
+//Show next button:
+nextBtn.addEventListener('click', function(){
+  currentItem++;
+  //If user presses next too many times, return to item 0
+  if(currentItem> reviews.length -1){
+currentItem = 0; 
+  }
+  showPerson(currentItem);
+});
