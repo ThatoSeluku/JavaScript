@@ -179,7 +179,7 @@ nav {
   transform: rotate(90deg);
 }
 .logo {
-  height: 40px;
+  height: 200px;
 }
 .links a {
   color: var(--clr-grey-3);
@@ -199,9 +199,9 @@ nav {
   display: none;
 }
 .links {
-  /* height: 0;
+   height: 0;
   overflow: hidden;
-  transition: var(--transition); */
+  transition: var(--transition); 
 }
 .show-links {
   height: 10rem;
