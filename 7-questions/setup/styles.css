@@ -230,19 +230,24 @@ Questions
 .question-text p {
   margin-bottom: 0;
 }
-/* hide text */
-/* .question-text {
+/* hide text by default */
+ .question-text {
   display: none;
 }
+/*.show-text is an extention of .question-text*/
 .show-text .question-text {
   display: block;
 }
+/*minus icon is set to not show by default*/
 .minus-icon {
   display: none;
 }
+
+/*.show-text is an extention of .minus-icon*/
 .show-text .minus-icon {
   display: inline;
 }
+/*.show-text is an extention of .plus-icon*/
 .show-text .plus-icon {
   display: none;
-} */
+} 

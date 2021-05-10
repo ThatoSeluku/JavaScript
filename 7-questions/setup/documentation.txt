@@ -1,0 +1,10 @@
+When in HTML 
+typing eg. 'section.questions' creates a section with the class "questions"
+<section class = "questions"></section>
+
+What we're trying to do is show the plus icon when the answer is not shown and as
+the answer is revealed, so is the plus icon hidden and replaced with the minus.
+
+How? We tranverse through all the buttons, listen for a click, when clicked we find the
+article of the button. aka the parent of the parent. Then, we add the "show-question" query
+parent = question-title, parent of parent = article--> question
