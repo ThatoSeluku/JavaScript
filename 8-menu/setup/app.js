@@ -71,6 +71,14 @@ const menu = [
     img: "./images/item-9.jpeg",
     desc: `skateboard fam synth authentic semiotics. Live-edge lyft af, edison bulb yuccie crucifix microdosing.`,
   },
+  {
+    id: 10,
+    title: "tender steak",
+    category: "lunch",
+    price: 49.99,
+    img: "./images/item-10.jpeg",
+    desc: `skateboard fam synth authentic semiotics. Live-edge lyft af, edison bulb yuccie crucifix microdosing.`,
+  },
 ];
 
 //Targeting the parent of the menu items so we can iterate through items and show them
@@ -96,8 +104,8 @@ btn.addEventListener("click", function(e){
    return menuItem;
  } 
    });
-   if(category==='all'){
-    displayMenuItems
+   if(category==="all"){
+    displayMenuItems(menu);
   }else{
     displayMenuItems(menuCategory);
   }
