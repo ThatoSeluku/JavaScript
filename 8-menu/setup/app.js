@@ -76,20 +76,32 @@ const menu = [
 //Targeting the parent of the menu items so we can iterate through items and show them
 const sectionCenter = document.querySelector(".section-center");
 
-//When our page loads we do the following
-console.log("Before execution");
-/*window.addEventListener("DOMContentloaded", function(){
-let displayMenu = menu.map(function(item){
-console.log(item);
-  return item;
-})
-console.log(displayMenu);
-console.log("While execution");
-});
-*/
+//QuerySelectorAll because we're selecting a list of buttons
+const filterbtn = document.querySelectorAll(".filter-btn");
 
+
+
+//When our page loads we do the following
 window.addEventListener("DOMContentLoaded", function(){
 displayMenuItems(menu);
+});
+
+//Filter items:
+//Each button is passed as a parameter, for each of the buttons
+filterbtn.forEach(function(btn){
+btn.addEventListener("click", function(e){
+  const category = e.currentTarget.dataset.id;
+  const menuCategory = menu.filter(function(menuItem){
+ if(menuItem.category===category){
+   return menuItem;
+ } 
+   });
+   if(category==='all'){
+    displayMenuItems
+  }else{
+    displayMenuItems(menuCategory);
+  }
+});
 });
 
 function displayMenuItems(menuItem){
