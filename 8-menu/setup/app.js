@@ -74,7 +74,7 @@ const menu = [
   {
     id: 10,
     title: "tender steak",
-    category: "lunch",
+    category: "dinner",
     price: 49.99,
     img: "./images/item-10.jpeg",
     desc: `skateboard fam synth authentic semiotics. Live-edge lyft af, edison bulb yuccie crucifix microdosing.`,
@@ -84,6 +84,8 @@ const menu = [
 //Targeting the parent of the menu items so we can iterate through items and show them
 const sectionCenter = document.querySelector(".section-center");
 
+const container = document.querySelector(".btn-container")
+
 //QuerySelectorAll because we're selecting a list of buttons
 const filterbtn = document.querySelectorAll(".filter-btn");
 
@@ -92,6 +94,24 @@ const filterbtn = document.querySelectorAll(".filter-btn");
 //When our page loads we do the following
 window.addEventListener("DOMContentLoaded", function(){
 displayMenuItems(menu);
+//set up functionality to display buttons:
+//1. Run map method :
+const categories = menu.reduce(function(values, item)
+{
+//Check if the category exists, if it does not. Then, push the item category
+if(!values.includes(item.category)){
+  values.push(item.category);
+}
+ return values;
+},["all"])
+
+const categoryBtns = categories.map(function(category){
+  return ` <button type="button" class="filter-btn" data-id=${category}>
+  ${category}
+</button>`
+}).join("");
+container.innerHTML = categoryBtns
+
 });
 
 //Filter items:
