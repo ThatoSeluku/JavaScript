@@ -89,11 +89,10 @@ console.log("While execution");
 */
 
 window.addEventListener("DOMContentLoaded", function(){
-console.log("During execution");
 let displayMenu = menu.map(function(item){
-  console.log(item);
-  return item;
+//Return title of each item
+  return `<h1>${item.title}</h1>`;
 });
+console.log(displayMenu);
 });
 
-console.log("After execution");
