@@ -74,5 +74,26 @@ const menu = [
 ];
 
 //Targeting the parent of the menu items so we can iterate through items and show them
-const sectionCenter = document.querySelector('.section-center');
+const sectionCenter = document.querySelector(".section-center");
+
 //When our page loads we do the following
+console.log("Before execution");
+/*window.addEventListener("DOMContentloaded", function(){
+let displayMenu = menu.map(function(item){
+console.log(item);
+  return item;
+})
+console.log(displayMenu);
+console.log("While execution");
+});
+*/
+
+window.addEventListener("DOMContentLoaded", function(){
+console.log("During execution");
+let displayMenu = menu.map(function(item){
+  console.log(item);
+  return item;
+});
+});
+
+console.log("After execution");
