@@ -1,0 +1,6 @@
+This project is a very crucial part of my Javascript career. Basically most applications 
+I will build will utilize a similar functionality, which is getting data from a source
+(incl. external db through eg. Ajax) then iterating through it and displaying it
+
+Now, instead of hard-coding each and every menu item (i.e. image, title, description etc) we're
+going to create a loop, iterate through them and then display items one by one. 

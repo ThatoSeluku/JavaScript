@@ -72,3 +72,7 @@ const menu = [
     desc: `skateboard fam synth authentic semiotics. Live-edge lyft af, edison bulb yuccie crucifix microdosing.`,
   },
 ];
+
+//Targeting the parent of the menu items so we can iterate through items and show them
+const sectionCenter = document.querySelector('.section-center');
+//When our page loads we do the following
