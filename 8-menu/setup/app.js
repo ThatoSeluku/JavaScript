@@ -94,43 +94,10 @@ const filterbtn = document.querySelectorAll(".filter-btn");
 //When our page loads we do the following
 window.addEventListener("DOMContentLoaded", function(){
 displayMenuItems(menu);
-//set up functionality to display buttons:
-//1. Run map method :
-const categories = menu.reduce(function(values, item)
-{
-//Check if the category exists, if it does not. Then, push the item category
-if(!values.includes(item.category)){
-  values.push(item.category);
-}
- return values;
-},["all"])
-
-const categoryBtns = categories.map(function(category){
-  return ` <button type="button" class="filter-btn" data-id=${category}>
-  ${category}
-</button>`
-}).join("");
-container.innerHTML = categoryBtns
-
+displayMenuButtons();
 });
 
-//Filter items:
-//Each button is passed as a parameter, for each of the buttons
-filterbtn.forEach(function(btn){
-btn.addEventListener("click", function(e){
-  const category = e.currentTarget.dataset.id;
-  const menuCategory = menu.filter(function(menuItem){
- if(menuItem.category===category){
-   return menuItem;
- } 
-   });
-   if(category==="all"){
-    displayMenuItems(menu);
-  }else{
-    displayMenuItems(menuCategory);
-  }
-});
-});
+
 
 function displayMenuItems(menuItem){
   let displayMenu = menuItem.map(function(item){
@@ -153,3 +120,40 @@ displayMenu = displayMenu.join("");
 sectionCenter.innerHTML = displayMenu
 };
 
+function displayMenuButtons(){
+ //set up functionality to display buttons:
+//1. Run map method :
+const categories = menu.reduce(function(values, item)
+{
+//Check if the category exists, if it does not. Then, push the item category
+if(!values.includes(item.category)){
+  values.push(item.category);
+}
+ return values;
+},["all"])
+
+const categoryBtns = categories.map(function(category){
+  return ` <button type="button" class="filter-btn" data-id=${category}>
+  ${category}
+</button>`
+}).join("");
+container.innerHTML = categoryBtns
+const filterbtn = document.querySelectorAll(".filter-btn")
+//Filter items:
+//Each button is passed as a parameter, for each of the buttons
+filterbtn.forEach(function(btn){
+  btn.addEventListener("click", function(e){
+    const category = e.currentTarget.dataset.id;
+    const menuCategory = menu.filter(function(menuItem){
+   if(menuItem.category===category){
+     return menuItem;
+   } 
+     });
+     if(category==="all"){
+      displayMenuItems(menu);
+    }else{
+      displayMenuItems(menuCategory);
+    }
+  });
+  });
+}
