@@ -9,7 +9,9 @@ btn.addEventListener("click", function(){
    //If button does not have a slide functionality then we add it
     if(!btn.classList.contains('slide')){
         btn.classList.add("slide")
+        video.pause()
     }else{
         btn.classList.remove("slide")
+        video.play()
     }
 })
