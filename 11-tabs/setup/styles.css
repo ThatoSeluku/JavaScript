@@ -195,7 +195,7 @@ About
 .about-img img {
   border-radius: var(--radius);
   object-fit: cover;
-  height: 20rem;
+  height: 30rem;
 }
 @media screen and (min-width: 992px) {
   .about-img {
