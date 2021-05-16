@@ -75,6 +75,10 @@ function format(item){
 items.forEach(function(item, index){
   item.innerHTML = values[index]
 })
+if(t<0){
+  clearInterval(countdown)
+  deadline.innerHTML= `<h4 class= "expired">The world has ended</h4>`
+}
 }
 //Countdown:
 let countdown = setInterval(getRemainingTime, 1000)
