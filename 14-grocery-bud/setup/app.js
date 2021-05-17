@@ -20,7 +20,16 @@ form.addEventListener("submit",addItem)
 function addItem(e){
 //Seeing that the default functionality here will be to submit the entire form, and we only want to submit an item
 e.preventDefault()
-console.log(grocery.value)
+const value = grocery.value 
+const id = new Date().getTime().toString()
+if(value && !editFlag)//If value is true and editFlag is false
+{
+console.log("Add item to list")
+}else if(value && editFlag){ //If there's a value and the edit is true
+console.log("Great edit")
+}else{
+
+}
 }
 // ****** LOCAL STORAGE **********
 
