@@ -28,8 +28,14 @@ console.log("Add item to list")
 }else if(value && editFlag){ //If there's a value and the edit is true
 console.log("Great edit")
 }else{
-
+displayAlert("Please enter your value", "danger")
 }
+}
+
+//Display success/ failure alert:
+function displayAlert(text, action){
+    alert.textContent = text
+    alert.classList.add(`alert-${action}`)
 }
 // ****** LOCAL STORAGE **********
 
