@@ -49,7 +49,7 @@ container.classList.add("show-container")
 //Add to local storage:
 addToLocalStorage(id, value);
 //Set back to default:
-setBackToDefault
+setBackToDefault();
 }else if(value && editFlag){ //If there's a value and the edit is true
 console.log("Great edit")
 }else{
@@ -64,20 +64,23 @@ function displayAlert(text, action){
 
     //remove alert with timer/ instead of calling function, you may write all functionality in there
     setTimeout(function(){
-        alert.textContent =""
+        alert.textContent ="";
         alert.classList.remove(`alert-${action}`)
     }, 4000)
 
 }
 
-// ****** Set back to default **********
+// ****** Function that removes text from textbox after submit button is clicked **********
 function setBackToDefault(){
-    console.log("Item set back to default")
-}
+   grocery.value = "";
+   editFlag = false;
+   editID ="";
+   submitBtn.textContent = "submit";
+};
 
 // ****** LOCAL STORAGE **********
 
 function addToLocalStorage(id, value){
-    console.log("Added to local storage")
+    console.log("Added to local storage");
 }
 // ****** SETUP ITEMS **********
