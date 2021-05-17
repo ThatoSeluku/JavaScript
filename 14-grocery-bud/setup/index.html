@@ -14,34 +14,21 @@
   </head>
   <body>
     <section class="section-center">
-      <form class= "grocery-form>
-        <p class="alert">
-          <h3>Grocery List:</h3>
-          <div class="form-control">
-            <input type="text" id="grocery" placeholder= "eg. Beer"/>
-        <button type="submit" class="submit-btn">Submit</button>
-          </div>
-        </p>
+      <!-- form -->
+      <form class="grocery-form">
+        <p class="alert"></p>
+        <h3>grocery bud</h3>
+        <div class="form-control">
+          <input type="text" id="grocery" placeholder="e.g. eggs" />
+          <button type="submit" class="submit-btn">submit</button>
+        </div>
       </form>
-    <!--List:-->
-    <div class="grocery-container">
-      <div class="grocery-list">
-        <article class="grocery-item">
-          <p class="title">item</p>
-        <div class="btn-container">
-          <button class="edit-btn" type="button">
-            <i class="fas fa-edit"></i>
-          </button>
-          <button class="delete-btn" type="button">
-            <i class="fas fa-trash"></i>
-          </button>
-        </div> 
-        </article>
+      <!-- list -->
+      <div class="grocery-container">
+        <div class="grocery-list"></div>
+        <button class="clear-btn">clear items</button>
       </div>
-      <button type="button" class="clear-btn">Clear</button>
-    </div>
     </section>
-
     <!-- javascript -->
     <script src="app.js"></script>
   </body>
