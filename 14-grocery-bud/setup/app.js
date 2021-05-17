@@ -63,7 +63,12 @@ addToLocalStorage(id, value);
 //Set back to default:
 setBackToDefault();
 }else if(value && editFlag){ //If there's a value and the edit is true
-console.log("Great edit")
+
+    editElement.innerHTML = value;
+    displayAlert("Successfully changed value", "success")
+    //Edit local storage:
+    editLocalStorage(editID, value)
+    setBackToDefault()
 }else{
 displayAlert("Please enter your value", "danger")
 }
@@ -117,7 +122,7 @@ function editItem(e){
 editElement = e.currentTarget.parentElement.previousElementSibling;
 //Setup form value to be the value of what we chose:
 grocery.value=editElement.innerHTML
-editFlag = true
+editFlag = true;
 editID = element.dataset.id;
 submitBtn.textContent= "Edit "
 }
@@ -128,17 +133,14 @@ function setBackToDefault(){
    editFlag = false;
    editID ="";
    submitBtn.textContent = "submit";
-};
-
-// ****** LOCAL STORAGE **********
-
-function addToLocalStorage(id, value){
-   // console.log("Added to local storage");
-};
-
-function removeFromLocalStorage(id){
-
 }
 
+// ****** LOCAL STORAGE **********
+function addToLocalStorage(id, value){
+    console.log("Added to local storage");
+}
+
+function removeFromLocalStorage(id){}
+function editLocalStorage(id, value){}
 
 // ****** SETUP ITEMS **********
