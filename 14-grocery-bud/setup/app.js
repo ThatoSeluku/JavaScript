@@ -111,7 +111,15 @@ function deleteItem(e){
 }
 //Edit function:
 function editItem(e){
-    console.log("Edit item");
+    //Select item
+    const element = e.currentTarget.parentElement.parentElement;
+//Set item
+editElement = e.currentTarget.parentElement.previousElementSibling;
+//Setup form value to be the value of what we chose:
+grocery.value=editElement.innerHTML
+editFlag = true
+editID = element.dataset.id;
+submitBtn.textContent= "Edit "
 }
 
 // ****** Function that removes text from textbox after submit button is clicked **********
