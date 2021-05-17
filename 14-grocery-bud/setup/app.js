@@ -156,14 +156,24 @@ function removeFromLocalStorage(id){
 function editLocalStorage(id, value){
     //localStorage API
     //setItem
-    let items
+    let items = getLocalStorage();
+    items = items.map(function(item){
+        if(item.id === id)
+        {
+            item.value = value
+        }
+        return item
+    })
+    localStorage.setItem("list",JSON.stringify(items))
     //getItem 
     //removeItem
     //save as strings
+    /*
     localStorage.setItem("orange", JSON.stringify(['item', 'item2']))
     const oranges = JSON.parse(localStorage.getItem("orange"))
     console.log(oranges)
     localStorage.removeItem("oranges")
+*/
 }
 function getLocalStorage(){
    return localStorage.getItem("list")?JSON.parse(localStorage.getItem("list")):[];  
