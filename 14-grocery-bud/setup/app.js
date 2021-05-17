@@ -36,6 +36,13 @@ displayAlert("Please enter your value", "danger")
 function displayAlert(text, action){
     alert.textContent = text
     alert.classList.add(`alert-${action}`)
+
+    //remove alert with timer/ instead of calling function, you may write all functionality in there
+    setTimeout(function(){
+        alert.textContent =""
+        alert.classList.remove(`alert-${action}`)
+    }, 4000)
+
 }
 // ****** LOCAL STORAGE **********
 
