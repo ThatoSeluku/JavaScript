@@ -18,7 +18,7 @@ let editID="";
 form.addEventListener("submit",addItem)
 clearBtn.addEventListener("click", clearList)
 const deleteBtn = document.querySelector(".delete-btn")
-
+window.addEventListener("DOMContentLoaded", setupItems);
 
 // ****** FUNCTIONS **********
 function addItem(e){
@@ -28,31 +28,7 @@ const value = grocery.value
 const id = new Date().getTime().toString()
 if(value && !editFlag)//If value is true and editFlag is false
 {
-    const element = document.createElement("article")
-    //Add new class
-    element.classList.add("grocery-item");
-    //add ID
-    const attr = document.createAttribute("data-id");
-    attr.value = id
-    element.setAttributeNode(attr)
-    element.innerHTML = `<p class="title">${value}</p>
-    <div class="btn-container">
-      <button class="edit-btn" type="button">
-        <i class="fas fa-edit"></i>
-      </button>
-      <button class="delete-btn" type="button">
-        <i class="fas fa-trash "></i>
-      </button>
-    </div>`
-
-const deleteBtn = element.querySelector(".delete-btn")
-const editBtn = element.querySelector(".edit-btn");
-
-
-deleteBtn.addEventListener("click", deleteItem); 
-editBtn.addEventListener("click", editItem);
-//Append child:
-list.appendChild(element)
+    createListItem(id, value)
 //Display alert after addition:
 displayAlert("Successfully added item to list", "success")
 container.classList.add("show-container")
@@ -180,3 +156,40 @@ function getLocalStorage(){
 }
 
 // ****** SETUP ITEMS **********
+function setupItems(){
+    let items = getLocalStorage();
+    if(items.length>0){
+items.forEach(function(item)
+{
+    createListItem(item.id, item.value)
+})
+container.classList.add("show-container")
+    }
+}
+function createListItem(id, value){
+    const element = document.createElement("article")
+    //Add new class
+    element.classList.add("grocery-item");
+    //add ID
+    const attr = document.createAttribute("data-id");
+    attr.value = id
+    element.setAttributeNode(attr)
+    element.innerHTML = `<p class="title">${value}</p>
+    <div class="btn-container">
+      <button class="edit-btn" type="button">
+        <i class="fas fa-edit"></i>
+      </button>
+      <button class="delete-btn" type="button">
+        <i class="fas fa-trash "></i>
+      </button>
+    </div>`
+
+const deleteBtn = element.querySelector(".delete-btn")
+const editBtn = element.querySelector(".edit-btn");
+
+
+deleteBtn.addEventListener("click", deleteItem); 
+editBtn.addEventListener("click", editItem);
+//Append child:
+list.appendChild(element)
+}
