@@ -16,6 +16,10 @@ let editID="";
 
 // ****** EVENT LISTENERS **********
 form.addEventListener("submit",addItem)
+clearBtn.addEventListener("click", clearList)
+const deleteBtn = document.querySelector(".delete-btn")
+
+
 // ****** FUNCTIONS **********
 function addItem(e){
 //Seeing that the default functionality here will be to submit the entire form, and we only want to submit an item
@@ -31,7 +35,7 @@ if(value && !editFlag)//If value is true and editFlag is false
     const attr = document.createAttribute("data-id");
     attr.value = id
     element.setAttributeNode(attr)
-    element.innerHTML = ` <p class="title">${value}</p>
+    element.innerHTML = `<p class="title">${value}</p>
     <div class="btn-container">
       <button class="edit-btn" type="button">
         <i class="fas fa-edit"></i>
@@ -39,7 +43,11 @@ if(value && !editFlag)//If value is true and editFlag is false
       <button class="delete-btn" type="button">
         <i class="fas fa-trash "></i>
       </button>
-    </div> `
+    </div>`
+
+const deleteBtn = element.querySelector(".delete-btn")
+const deleteBtn = element.querySelector(".delete-btn")
+
 //Append child:
 list.appendChild(element)
 //Display alert after addition:
@@ -48,6 +56,7 @@ container.classList.add("show-container")
 
 //Add to local storage:
 addToLocalStorage(id, value);
+//Edit function
 //Set back to default:
 setBackToDefault();
 }else if(value && editFlag){ //If there's a value and the edit is true
@@ -60,7 +69,7 @@ displayAlert("Please enter your value", "danger")
 //Display success/ failure alert:
 function displayAlert(text, action){
     alert.textContent = text
-    alert.classList.add(`alert-${action}`)
+alert.classList.add(`alert-${action}`)
 
     //remove alert with timer/ instead of calling function, you may write all functionality in there
     setTimeout(function(){
@@ -68,6 +77,20 @@ function displayAlert(text, action){
         alert.classList.remove(`alert-${action}`)
     }, 4000)
 
+}
+
+function clearList(){
+  const items = document.querySelectorAll(".grocery-item");
+  //Check if items are more than 0
+  if(items.length>0){
+    items.forEach(function(item){
+    list.removeChild(item) 
+})
+  }
+  container.classList.remove("show-container");
+  displayAlert("empty list", "danger")
+  //localStorage.removeItem("list")
+  setBackToDefault();
 }
 
 // ****** Function that removes text from textbox after submit button is clicked **********
@@ -82,5 +105,7 @@ function setBackToDefault(){
 
 function addToLocalStorage(id, value){
     console.log("Added to local storage");
-}
+};
+
+
 // ****** SETUP ITEMS **********
