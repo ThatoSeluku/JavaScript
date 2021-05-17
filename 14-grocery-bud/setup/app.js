@@ -97,7 +97,7 @@ function clearList(){
   }
   container.classList.remove("show-container");
   displayAlert("empty list", "danger")
-  //localStorage.removeItem("list")
+  localStorage.removeItem("list")
   setBackToDefault();
 }
 
@@ -138,16 +138,25 @@ function setBackToDefault(){
 // ****** LOCAL STORAGE **********
 function addToLocalStorage(id, value){
   const grocery = {id,value}
-  let items = localStorage.getItem("list")?JSON.parse(localStorage.getItem("list")):[];
+  let items = getLocalStorage();
 items.push(grocery)
 localStorage.setItem("list",JSON.stringify(items))
-console.log(items);
+
 }
 
-function removeFromLocalStorage(id){}
+function removeFromLocalStorage(id){
+    let items = getLocalStorage();
+
+    items = items.filter(function(item){
+        if(item.id !==id){
+            return item 
+        }
+    })
+}
 function editLocalStorage(id, value){
     //localStorage API
     //setItem
+    let items
     //getItem 
     //removeItem
     //save as strings
@@ -155,6 +164,9 @@ function editLocalStorage(id, value){
     const oranges = JSON.parse(localStorage.getItem("orange"))
     console.log(oranges)
     localStorage.removeItem("oranges")
+}
+function getLocalStorage(){
+   return localStorage.getItem("list")?JSON.parse(localStorage.getItem("list")):[];  
 }
 
 // ****** SETUP ITEMS **********
