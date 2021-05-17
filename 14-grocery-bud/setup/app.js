@@ -45,6 +45,11 @@ list.appendChild(element)
 //Display alert after addition:
 displayAlert("Successfully added item to list", "success")
 container.classList.add("show-container")
+
+//Add to local storage:
+addToLocalStorage(id, value);
+//Set back to default:
+setBackToDefault
 }else if(value && editFlag){ //If there's a value and the edit is true
 console.log("Great edit")
 }else{
@@ -64,6 +69,15 @@ function displayAlert(text, action){
     }, 4000)
 
 }
+
+// ****** Set back to default **********
+function setBackToDefault(){
+    console.log("Item set back to default")
+}
+
 // ****** LOCAL STORAGE **********
 
+function addToLocalStorage(id, value){
+    console.log("Added to local storage")
+}
 // ****** SETUP ITEMS **********
