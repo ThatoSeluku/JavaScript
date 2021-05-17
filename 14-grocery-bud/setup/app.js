@@ -46,8 +46,11 @@ if(value && !editFlag)//If value is true and editFlag is false
     </div>`
 
 const deleteBtn = element.querySelector(".delete-btn")
-const deleteBtn = element.querySelector(".delete-btn")
+const editBtn = element.querySelector(".edit-btn");
 
+
+deleteBtn.addEventListener("click", deleteItem); 
+editBtn.addEventListener("click", editItem);
 //Append child:
 list.appendChild(element)
 //Display alert after addition:
@@ -91,6 +94,15 @@ function clearList(){
   displayAlert("empty list", "danger")
   //localStorage.removeItem("list")
   setBackToDefault();
+}
+
+//Delete function:
+function deleteItem(){
+    console.log("Gone!");
+}
+//Edit function:
+function editItem(){
+    console.log("Edit item");
 }
 
 // ****** Function that removes text from textbox after submit button is clicked **********
