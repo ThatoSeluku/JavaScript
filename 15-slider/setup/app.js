@@ -27,15 +27,29 @@ prevBtn.addEventListener("click", function(){
  */
 
 function carousel(){
-  if(counter === slides.length){
+  /*
+    if(counter === slides.length){
       counter = 0;
   }
   if(counter<0){
 counter = slides.length-1;
   }
 
-
-
+*/
+//button implementation:
+if(counter<slides.length-1)
+{
+    nextBtn.style.display = "block"
+}else{
+    nextBtn.style.display = "none"
+}
+if(counter>0){
+    
+prevBtn.style.display ="block"
+}
+else{
+    prevBtn.style.display ="none"  
+}
     //Function runs for each number of slides
     slides.forEach(function(slide){
         slide.style.transform= `translateX(-${counter*100}%)`
