@@ -1,0 +1,4 @@
+How it works? 
+Images are loaded onto the scene using HTML, a couresel effect will be exercised when we press the prev and next button. Each image occupies 100% of space on the
+x axis, as each button is pressed, we append this 100 with another 100, giving the effect of another image being viewed.
+
