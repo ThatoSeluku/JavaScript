@@ -10,8 +10,25 @@ slide.style.left= `${index*100}%`;
 let counter = 0;
 nextBtn.addEventListener("click", function(){
     counter++;
+    carousel()
 })
 
 prevBtn.addEventListener("click", function(){
     counter--;
+    carousel()
 })
+
+/**
+ * 
+ * Below we implement this CSS line into Javascript:
+ * .slide{
+  transform: translateX(-100%);
+} 
+ */
+
+function carousel(){
+    //Function runs for each number of slides
+    slides.forEach(function(slide){
+        slide.style.transform= `translateX(-${counter*100}%)`
+    })
+}
