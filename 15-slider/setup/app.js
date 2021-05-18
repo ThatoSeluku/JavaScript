@@ -27,6 +27,15 @@ prevBtn.addEventListener("click", function(){
  */
 
 function carousel(){
+  if(counter === slides.length){
+      counter = 0;
+  }
+  if(counter<0){
+counter = slides.length-1;
+  }
+
+
+
     //Function runs for each number of slides
     slides.forEach(function(slide){
         slide.style.transform= `translateX(-${counter*100}%)`
