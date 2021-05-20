@@ -60,6 +60,9 @@
 <script>
 window.addEventListener('keydown', function(e){
 const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+if(!audio) //If no audio is associated, do not bother
+return;
+audio.currentTime = 0; //Start over 
 audio.play();
 })
 </script>
