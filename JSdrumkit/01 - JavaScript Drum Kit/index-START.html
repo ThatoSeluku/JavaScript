@@ -65,8 +65,17 @@ if(!audio) //If no audio is associated, do not bother
 return;
 audio.currentTime = 0; //Start over 
 audio.play();
-
+key.classList.add('playing');
 })
+//Use transition end event for when you're done clicking:
+function removeTransition(e){
+if(e.propertyName !=='transform')
+return; //Skip if not transition
+this.classList.remove('playing')
+}
+const keys = document.querySelectorAll('.key')
+keys.forEach(key=>key.addEventListener('transitionend', removeTransition));
+
 </script>
 
 
