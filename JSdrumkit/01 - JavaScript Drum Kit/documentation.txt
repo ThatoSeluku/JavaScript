@@ -1,0 +1,3 @@
+In the HTML:
+You're allowed to create your own variables by using the "data-" keyword. So data-key creates a key variable with a specific value.
+Our aim is to have these keys linked to specific keyboard keys, and allow sound to be played upon pressing
