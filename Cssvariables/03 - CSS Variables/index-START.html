@@ -12,7 +12,7 @@
     <input id="spacing" type="range" name="spacing" min="10" max="200" value="10" data-sizing="px">
 
     <label for="blur">Blur:</label>
-    <input id="blur" type="range" name="blur" min="0" max="25" value="10" data-sizing="px">
+    <input id="blur" type="range" name="blur" min="0" max="17" value="8" data-sizing="px">
 
     <label for="base">Base Color</label>
     <input id="base" type="color" name="base" value="#ffc600">
@@ -27,9 +27,9 @@
     */
 
 :root{
-  --base: #ffc600;
+  --base: #2cca6e;
   --spacing: 5px;
-  --blur: 15px;
+  --blur: 5px;
 }
 
 img{
@@ -37,6 +37,11 @@ img{
   background-color: var(--base);
   filter: blur(var(--blur));
 }
+
+.hl {
+  color: var(--base); 
+}
+
     body {
       text-align: center;
       background: #193549;
@@ -56,6 +61,7 @@ img{
   </style>
 
   <script>
+    
   </script>
 
 </body>
