@@ -61,7 +61,12 @@ img{
   </style>
 
   <script>
-    
+const inputs = document.querySelectorAll('.controls input');
+function handleupdate(){
+  console.log(this.value);
+}
+inputs.forEach(input => input.addEventListener('change', handleupdate));
+
   </script>
 
 </body>
