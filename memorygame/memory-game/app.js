@@ -54,9 +54,11 @@ img: 'images/fries.png'
 
 ]
 
+//
+
 //Select 'grid' query
 const grid = document.querySelector('.grid')
-const resultDisplay = document.query
+const resultDisplay = document.querySelector('#result')
 
 
 var cardsChosen = []
@@ -96,7 +98,11 @@ alert('Sorry, try again')
 }
 cardsChosen = []
 cardsChosenId = []
-resultDisplay
+resultDisplay.textContent = cardsWon.length
+if(cardsWon.length ===cardsArray.length/2)
+{
+  resultDisplay.textContent= 'Well, well, well, you have beat the game!'
+}
 },
 
 
