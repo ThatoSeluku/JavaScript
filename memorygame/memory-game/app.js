@@ -69,7 +69,7 @@ var cardsWon = []
 function createBoard(){
 for(let i=0; i<cardArray.length; i++)
 //Create card element and set it to img:
-var card = document.createElement('img')
+const card = document.createElement('img')
 //Set all images to white image, this acts as the blank canvas
 card.setAttribute('src', 'images/blank.png')
 //Set id to each element(i) of card
@@ -78,7 +78,7 @@ card.setAttribute('data-id', i)
 card.addEventListener('click', flipcard)
 grid.appendChild(card)
 }
-},
+
 
 //Check for matches
 function checkForMatch(){
