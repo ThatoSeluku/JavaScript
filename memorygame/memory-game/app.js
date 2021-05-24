@@ -60,10 +60,9 @@ cardArray.sort(()=>0.5 - Math.random())
 //Select 'grid' query
 const grid = document.querySelector('.grid')
 const resultDisplay = document.querySelector('#result')
-
-var cardsChosen = []
-var cardsChosenId =[]
-var cardsWon = []
+let cardsChosen = []
+let cardsChosenId =[]
+let cardsWon = []
 
 //Function that creates the game board
 function createBoard(){
