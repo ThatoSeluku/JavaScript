@@ -81,8 +81,11 @@ function checkForMatch(){
   var cards = document.querySelectorAll('img')
   //Get first value of array and assign to 
   const optionOneId = cardsChosenId[0]
-
+  const optionTwoId = cardsChosenId[1]
+if(cardsChosen[0]===cardsChosen[1]){
+alert('You found a match!')
 }
+},
 
 
 //Flip the card
