@@ -83,34 +83,43 @@ grid.appendChild(card)
 //Check for matches
 function checkForMatch(){
   //Get all cards and put them in a query selector:
-  var cards = document.querySelectorAll('img')
+  const cards = document.querySelectorAll('img')
   //Get first value of array and assign to 
   const optionOneId = cardsChosenId[0]
   const optionTwoId = cardsChosenId[1]
-if(cardsChosen[0]===cardsChosen[1]){
-alert('You found a match!')
-cards[optionOneId].setAttribute('src', 'images/white.png')
-cards[optionTwoId].setAttribute('src', 'images/white.png')
-cardsWon.push(cardsChosen)
-}else{
+
+if(optionOneId==optionTwoId){
 cards[optionOneId].setAttribute('src', 'images/blank.png')
 cards[optionTwoId].setAttribute('src', 'images/blank.png')
-alert('Sorry, try again')
+alert('You clicked the same card!')
+
+}else if(cardsChosen[0] === cardsChosen[1]){
+cards[optionOneId].setAttribute('src', 'images/white.png')
+cards[optionTwoId].setAttribute('src', 'images/white.png')
+//Upon clicking two matching cards remove the flipCard eventlistener
+cards[optionOneId].removeEventListener('click', flipcard)
+cards[optionTwoId].removeEventListener('click', flipcard)
+alert('Great job! Keep going!')
+cardsWon.push(cardsChosen)
+}else{
+  cards[optionOneId].setAttribute('src', 'images/blank.png')
+  cards[optionTwoId].setAttribute('src', 'images/blank.png')
+  alert('sorry, try again')
 }
 cardsChosen = []
 cardsChosenId = []
-resultDisplay.textContent = cardsWon.length
-if(cardsWon.length ===cardsArray.length/2)
+  resultDisplay.textContent = cardsWon.length
+  if(cardsWon.length ===cardsArray.length/2)
 {
   resultDisplay.textContent= 'Well, well, well, you have beat the game!'
 }
-},
+}
 
 
 //Flip the card
 function flipcard(){
  //Select the cardId
-  var cardId = this.getAttribute('data-id')
+  let cardId = this.getAttribute('data-id')
 //push chosen card to top of array list by name
 cardChosen.push(cardArray[cardId].name)
 cardsChosenId .push(cardId)
@@ -121,7 +130,6 @@ if (cardsChosen.length ===2){
  setTimeout(checkForMatch, 500)
 }
 }
-
 
 createBoard()
 })
