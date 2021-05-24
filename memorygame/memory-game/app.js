@@ -2,67 +2,68 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
 //const options:
 //Create array of objects to be used in game 
-const cardArray =[
-{
-name: 'fries',
-img: 'images/fries.png'
-}, 
-{
-  name: 'fries',
-  img: 'images/fries.png'
+const cardArray = [
+  {
+    name: 'fries',
+    img: 'images/fries.png'
   },
   {
     name: 'cheeseburger',
     img: 'images/cheeseburger.png'
-    },
-    {
-      name: 'cheeseburger',
-      img: 'images/cheeseburger.png'
-      },
-      {
-        name: 'hotdog',
-        img: 'images/hotdog.png'
-        },
-        {
-          name: 'hotdog',
-          img: 'images/hotdog.png'
-          },
-          {
-            name: 'ice-cream',
-            img: 'images/ice-cream.png'
-            },
-            {
-              name: 'ice-cream',
-              img: 'images/ice-cream.png'
-              },
-              {
-                name: 'milkshake',
-                img: 'images/milkshake.png'
-                },
-                {
-                  name: 'milkshake',
-                  img: 'images/milkshake.png'
-                  },
-                  {
-                    name: 'pizza',
-                    img: 'images/pizza.png'
-                    },
-                    {
-                      name: 'pizza',
-                      img: 'images/pizza.png'
-                      },
-
+  },
+  {
+    name: 'ice-cream',
+    img: 'images/ice-cream.png'
+  },
+  {
+    name: 'pizza',
+    img: 'images/pizza.png'
+  },
+  {
+    name: 'milkshake',
+    img: 'images/milkshake.png'
+  },
+  {
+    name: 'hotdog',
+    img: 'images/hotdog.png'
+  },
+  {
+    name: 'fries',
+    img: 'images/fries.png'
+  },
+  {
+    name: 'cheeseburger',
+    img: 'images/cheeseburger.png'
+  },
+  {
+    name: 'ice-cream',
+    img: 'images/ice-cream.png'
+  },
+  {
+    name: 'pizza',
+    img: 'images/pizza.png'
+  },
+  {
+    name: 'milkshake',
+    img: 'images/milkshake.png'
+  },
+  {
+    name: 'hotdog',
+    img: 'images/hotdog.png'
+  }
 ]
 
-//
+
+
+cardArray.sort(()=>0.5 - Math.random())
 
 //Select 'grid' query
 const grid = document.querySelector('.grid')
 const resultDisplay = document.querySelector('#result')
 
-
 var cardsChosen = []
 var cardsChosenId =[]
+var cardsWon = []
 
 //Function that creates the game board
 function createBoard(){
@@ -117,9 +118,10 @@ cardsChosenId .push(cardId)
 this.setAttribute('src', cardArray[cardId].img)
 //Check for match after half a second
 if (cardsChosen.length ===2){
-  setTimeout(checkForMatch, 500)
+ setTimeout(checkForMatch, 500)
 }
 }
 
 
-)
+createBoard()
+})
